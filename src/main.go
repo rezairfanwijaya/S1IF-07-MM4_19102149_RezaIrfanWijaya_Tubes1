@@ -4,24 +4,37 @@ import "fmt"
 
 // =================== SELECTION SORT =======================
 
+// function selection sort dengan parameter array, awal, akhir dan balikan berupa slice int
 func SelectionSort(arr []int, i, j int) []int {
+	// jika awal lebih kecil dari akhir
 	if i < j {
+		// lakukan partisi pada array
 		p := Partisi3(arr, i, j)
+		// urutkan array dengan partisi yang telah di lakukan
 		arr = SelectionSort(arr, i, p-1)
+		// urutkan array dengan partisi yang telah di lakukan
 		arr = SelectionSort(arr, p+1, j)
 	}
+	// kembalikan array
 	return arr
 }
 
+// function artisi dengan parameter array, awal, akhir denagan balikan berupa int
 func Partisi3(arr []int, i, j int) int {
+	// looping semua data pada array
 	for k := i + 1; k <= j; k++ {
+		// tetap kan nilai minimal
 		nilaiMin := i
+		// jika array k lebih kecil dari array k+1
 		if arr[k] < arr[nilaiMin] {
+			// nilai minimal di ganti dengan k
 			nilaiMin = k
 		}
+		// lakukan pertukaran posisi
 		arr[nilaiMin], arr[i] = arr[i], arr[nilaiMin]
 	}
 
+	// kembalikan nilai minimal
 	return i
 }
 
@@ -29,27 +42,38 @@ func Partisi3(arr []int, i, j int) int {
 
 // =================== INSERTION SORT =========================
 
+// function insertion sort dengan parameter array, awal, akhir dan balikan berupa slice int
 func InsertionSort(arr []int, i, j int) []int {
+	// jika awal lebih kecil dari akhir
 	if i < j {
+		// tetapkan nilai awal
 		k := i
+		// rekursif
 		InsertionSort(arr, k+1, j)
+		// lakukan penggabungan
 		Merge(arr, i, k, j)
 	}
 
 	return arr
 }
 
+// function merge dengan parameter array, awal, tengah, akhir dan balikan berupa slice int
 func Merge(arr []int, i, k, j int) []int {
 	// merge hasil pembagian
 	for i <= k && k <= j {
+		// jika nilai awal lebih besar dari nilai tengah
 		if arr[i] > arr[k] {
+			// lakukan pertukaran posisi
 			arr[i], arr[k] = arr[k], arr[i]
+			// increment i dan k
 			i++
 			k++
 		} else {
+			// incerment k
 			k++
 		}
 	}
+	// kembalikan array
 	return arr
 }
 
