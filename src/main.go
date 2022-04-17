@@ -1,3 +1,9 @@
+// Kelas	: MM4
+// Nama		: REZA IRFAN WIJAYA
+// NIM		: 19102149
+
+
+
 package main
 
 import "fmt"
