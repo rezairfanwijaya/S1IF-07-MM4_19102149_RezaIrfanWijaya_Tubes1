@@ -2,11 +2,35 @@
 // Nama		: REZA IRFAN WIJAYA
 // NIM		: 19102149
 
-
-
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"io/ioutil"
+	"strconv"
+	"strings"
+)
+
+// ambil data dari folder data
+func ReadData(filename string) []int {
+	// ambil path dari file
+	data, err := ioutil.ReadFile("../data/" + filename)
+	if err != nil {
+		fmt.Println(err.Error())
+	}
+
+	// ubah data byte menjadi string
+	byteString := strings.Split(string(data), " ")
+	res := []int{}
+	for _, v := range byteString {
+		// ubah string menjadi int
+		i, _ := strconv.Atoi(v)
+		res = append(res, i)
+	}
+
+	return res
+
+}
 
 // =================== SELECTION SORT =======================
 
@@ -87,36 +111,33 @@ func Merge(arr []int, i, k, j int) []int {
 
 func main() {
 
+	// my data
+	data := ReadData("Number.txt")
+	data2 := ReadData("Number.txt")
+
 	fmt.Printf("\n==============================================================\n")
 	fmt.Println("====================== SELECTION SORT ========================")
 	fmt.Printf("==============================================================\n")
 
-	// inisiasi array
-	arr := []int{5, 2, 4, 6, 1, 3, 90, 98}
-
 	// print data sebelum diurutkan
-	fmt.Printf("Data sebelum diurutkan: %v\n", arr)
+	fmt.Printf("Data sebelum diurutkan: %v\n", data)
 
 	// urutkan data
-	arr = SelectionSort(arr, 0, len(arr)-1)
+	data = SelectionSort(data, 0, len(data)-1)
 
 	// print data setelah diurutkan
-	fmt.Printf("Data setelah diurutkan: %v\n\n\n\n", arr)
+	fmt.Printf("Data setelah diurutkan: %v\n\n\n\n", data)
 
 	fmt.Printf("\n==============================================================\n")
 	fmt.Println("====================== INSERTION SORT ========================")
 	fmt.Printf("==============================================================\n")
 
-	// inisiasi array
-	arr2 := []int{5, 2, 4, 6, 1, 3, 90, 98}
-
 	// print data sebelum diurutkan
-	fmt.Printf("Data sebelum diurutkan: %v\n", arr2)
+	fmt.Printf("Data sebelum diurutkan: %v\n", data2)
 
 	// urutkan data
-	res := InsertionSort(arr2, 0, len(arr2)-1)
+	res := InsertionSort(data2, 0, len(data2)-1)
 
 	// print data setelah diurutkan
 	fmt.Printf("Data setelah diurutkan: %v\n\n\n\n", res)
-
 }
