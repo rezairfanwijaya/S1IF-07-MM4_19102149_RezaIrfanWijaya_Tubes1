@@ -140,4 +140,8 @@ func main() {
 
 	// print data setelah diurutkan
 	fmt.Printf("Data setelah diurutkan: %v\n\n\n\n", res)
+
+	var space string
+	fmt.Printf("Tekan enter untuk keluar")
+	fmt.Scanln(&space)
 }
