@@ -132,12 +132,15 @@ func main() {
 	fmt.Printf("Data setelah diurutkan: %v\n\n\n\n", data)
 
 	// durasi ekseskusi program
-	fmt.Printf("Durasi eksekusi program: %v Detik \n", time.Since(start).Seconds())
+	fmt.Printf("Durasi eksekusi program selection-sort: %v Detik \n", time.Since(start).Seconds())
 
 	fmt.Printf("\n==============================================================\n")
 	fmt.Println("====================== INSERTION SORT ========================")
 	fmt.Printf("==============================================================\n")
 
+	// referesh time
+	start = time.Now()
+	
 	// my data
 	data2 := ReadData("Number.txt")
 
@@ -151,7 +154,7 @@ func main() {
 	fmt.Printf("Data setelah diurutkan: %v\n\n\n\n", res)
 
 	// durasi ekseskusi program
-	fmt.Printf("Durasi eksekusi program: %v Detik \n", time.Since(start).Seconds())
+	fmt.Printf("Durasi eksekusi program insertion-sort: %v Detik \n", time.Since(start).Seconds())
 
 	var space string
 	fmt.Printf("Tekan enter untuk keluar")
