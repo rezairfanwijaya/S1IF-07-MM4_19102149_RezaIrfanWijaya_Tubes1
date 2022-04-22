@@ -1,0 +1,53 @@
+prosedure InsertionSort (var arr: array of integer; i,j: integer);
+{Mengurutkan element array arr dengan Insertion Sort
+i dan j adalah indeks awal dan akhir array arr
+Masukan : arr[i..j]
+Luaran : arr[i..j] terurut
+}
+
+START 
+    // ketika i lebih kecil dari j
+    if i < j then
+        begin
+            // inisiasi nilai awal
+            k <- i
+            // rekursif
+            InsertionSort (arr, k+1, j)
+            // merge
+            Merge(arr, i, k, j)
+        end
+    
+    return arr
+END
+
+
+prosedure Merge(var arr: array of integer; i,k,j: integer);
+{Menggabngkan element array arr dengan Merge Sort
+i, k, dan j adalah indeks awal, tengah, dan akhir array arr
+Masukan : arr[i..k] dan arr[k+1..j]
+Luaran : arr[i..j] terurut
+}
+
+START 
+    // looping element array arr
+    for i <= k && k <= j do 
+        begin
+            // jika element array arr[i] lebih besar dari element array arr[k]
+            if arr[i] > arr[k] then
+                begin
+                    // tukar element
+                    arr[i], arr[k] = arr[k], arr[i]
+                    // increment i
+                    i <- i + 1
+
+                    // incerment k
+                    k <- k + 1
+                end
+            else 
+                begin
+                    // increment k
+                    k <- k + 1
+                end
+        end
+    return arr
+END

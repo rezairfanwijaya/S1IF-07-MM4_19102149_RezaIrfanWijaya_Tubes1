@@ -1,0 +1,52 @@
+procedure SelectionSort(arr : array of integer, i,j : integer);
+{Mengurutkan array arr dari i sampai j dengan algoritma Selection Sort
+Masukan : arr = array yang akan diurutkan, i = indeks awal, j = indeks akhir
+Luaran : arr = array yang telah diurutkan
+}
+
+START 
+    // ketika nilai i kurang dari j maka lakukan semua proses dalam block ini
+    if i < j then
+        begin
+            // lakukan partisi
+            p <- Partisi3(arr, i, j, k);
+
+            // urutkan bagian kiri dari partisi
+            arr <- SelectionSort(arr, i, p-1);
+
+            // urutkan bagian kanan dari partisi
+            arr <- SelectionSort(arr, p+1, j);
+        end 
+
+        //  kembalikan nilai arr
+        return arr;
+    
+END;
+
+
+procedure Partisi3(arr : array of integer, i,j,: integer);
+{Membagi array arr menjadi dua bagian, yaitu bagian kiri dan bagian kanan yang tidak sama panjangnya}
+{Masukan : arr = array yang akan dipartisi, i = indeks awal, j = indeks akhir
+Luaran : arr = array yang telah dipartisi
+}
+
+START
+   // lakukan perulangan sebanyak jumlah elemen array
+    for k <- i to j do
+          begin
+               // inisialisasi nilai minimal
+                min <- i 
+
+                // jika nilai dari arr[k] lebih kecil dari arr[min] maka nilai minimal akan diubah
+                if arr[k] < arr[min] then
+                    begin
+                        min <- k;
+                    end;
+                
+                //lakukan pertukaran posisi
+                arr[min], arr[i] <- arr[i], arr[min];
+
+          end;
+    
+          return i;
+END;
