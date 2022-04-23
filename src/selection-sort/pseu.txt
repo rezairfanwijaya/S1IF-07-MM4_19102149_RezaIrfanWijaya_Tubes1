@@ -6,20 +6,20 @@ Luaran : arr = array yang telah diurutkan
 
 START 
     // ketika nilai i kurang dari j maka lakukan semua proses dalam block ini
-    if i < j then
+    if i < j then  <== O(1)
         begin
             // lakukan partisi
-            p <- Partisi3(arr, i, j, k);
+            p <- Partisi3(arr, i, j, k); <== O(1)
 
             // urutkan bagian kiri dari partisi
-            arr <- SelectionSort(arr, i, p-1);
+            arr <- SelectionSort(arr, i, p-1); <== O(1)
 
             // urutkan bagian kanan dari partisi
-            arr <- SelectionSort(arr, p+1, j);
+            arr <- SelectionSort(arr, p+1, j); <== O(1)
         end 
 
         //  kembalikan nilai arr
-        return arr;
+        return arr; <== O(1)
     
 END;
 
@@ -32,21 +32,21 @@ Luaran : arr = array yang telah dipartisi
 
 START
    // lakukan perulangan sebanyak jumlah elemen array
-    for k <- i to j do
+    for k <- i to j do <== O(n)
           begin
                // inisialisasi nilai minimal
-                min <- i 
+                min <- i  <== O(1)
 
                 // jika nilai dari arr[k] lebih kecil dari arr[min] maka nilai minimal akan diubah
-                if arr[k] < arr[min] then
+                if arr[k] < arr[min] then <== O(1)
                     begin
-                        min <- k;
+                        min <- k; <== O(1)
                     end;
                 
                 //lakukan pertukaran posisi
-                arr[min], arr[i] <- arr[i], arr[min];
+                arr[min], arr[i] <- arr[i], arr[min]; <== O(1)
 
           end;
     
-          return i;
+          return i; <== O(1)
 END;

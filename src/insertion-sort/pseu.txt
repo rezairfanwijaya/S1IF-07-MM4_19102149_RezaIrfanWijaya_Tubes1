@@ -7,12 +7,12 @@ Luaran : arr[i..j] terurut
 
 START 
     // ketika i lebih kecil dari j
-    if i < j then
+    if i < j then <== O(1)
         begin
             // inisiasi nilai awal
-            k <- i
+            k <- i <== O(1)
             // rekursif
-            InsertionSort (arr, k+1, j)
+            InsertionSort (arr, k+1, j) 
             // merge
             Merge(arr, i, k, j)
         end
