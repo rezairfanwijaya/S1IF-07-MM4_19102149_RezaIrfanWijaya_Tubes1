@@ -2,32 +2,8 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
-	"strconv"
-	"strings"
 	"time"
 )
-
-// ambil data dari folder data
-func ReadData(filename string) []int {
-	// ambil path dari file
-	data, err := ioutil.ReadFile("../../data/" + filename)
-	if err != nil {
-		fmt.Println(err.Error())
-	}
-
-	// ubah data byte menjadi string
-	byteString := strings.Split(string(data), " ")
-	res := []int{}
-	for _, v := range byteString {
-		// ubah string menjadi int
-		i, _ := strconv.Atoi(v)
-		res = append(res, i)
-	}
-
-	return res
-
-}
 
 // function insertion sort dengan parameter array, awal, akhir dan balikan berupa slice int
 func InsertionSort(arr []int, i, j int) []int {
@@ -68,12 +44,12 @@ func main() {
 	// penghitung waktu
 	start := time.Now()
 
+	// my data
+	data2 := []int{5, 2, 4, 6, 1, 3}
+
 	fmt.Printf("\n==============================================================\n")
 	fmt.Println("====================== INSERTION SORT ========================")
 	fmt.Printf("==============================================================\n")
-
-	// my data
-	data2 := ReadData("Number.txt")
 
 	// print data sebelum diurutkan
 	fmt.Printf("Data sebelum diurutkan: %v\n", data2)
