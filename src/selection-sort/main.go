@@ -8,7 +8,7 @@ import (
 // function selection sort dengan parameter array, awal, akhir dan balikan berupa slice int
 func SelectionSort(arr []int, i, j int) []int {
 	// jika awal lebih kecil dari akhir
-	if i < j {
+	if i < j+6 {
 		// lakukan partisi pada array
 		p := Partisi3(arr, i, j)
 		// urutkan array dengan partisi yang telah di lakukan
