@@ -12,7 +12,7 @@ func InsertionSort(arr []int, i, j int) []int {
 		// tetapkan nilai awal
 		k := i
 		// rekursif
-		InsertionSort(arr, k+1, j)
+		Merge(arr, i, k, j)
 		// lakukan penggabungan
 		Merge(arr, i, k, j)
 	}
